@@ -1,6 +1,7 @@
 # GCellBeaconScanner_Android_v2
 GCell Beacon Scanner for Android. Version 2 allowing operation as a service within Android and delivery of notifications based on beacon specificcations.
 
+Examples and explanations of different ways to use the library are given as branches in the repository. 
 
 ### Installing the Library
 
