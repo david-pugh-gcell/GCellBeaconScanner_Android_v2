@@ -10,11 +10,8 @@ import com.gcell.ibeacon.gcellbeaconscanlibrary.*;
 
 public class MainActivity extends AppCompatActivity implements GCellScanManagerEvents{
 
-    private String TAG = "GCell Activity";
-
+    
     private GCellBeaconScanManager mBleScanMan;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
