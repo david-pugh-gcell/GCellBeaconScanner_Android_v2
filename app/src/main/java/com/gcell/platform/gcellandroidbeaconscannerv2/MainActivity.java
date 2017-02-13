@@ -10,16 +10,7 @@ import com.gcell.ibeacon.gcellbeaconscanlibrary.*;
 
 public class MainActivity extends AppCompatActivity implements GCellScanManagerEvents{
 
-    private String TAG = "GCell Activity";
-    private ArrayList<GCellBeaconRegion> mBeaconRegions = new ArrayList<>();
-    private boolean deBug = false;
-
     private GCellBeaconScanManager mBleScanMan;
-    private GCellBeaconScanManagerService mBleScanManService;
-    private GCellPermissionSettings mPermissionSettings = new GCellPermissionSettings();
-    private GCellBeaconScanServiceSettings mServiceSettings = new GCellBeaconScanServiceSettings();
-    private GCellNotificationSettings mNotificationSettings;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements GCellScanManagerE
     private void addOptionalScanOptions(){
 
         //Set debug = true to see Log feedback as we scan
-        mBleScanMan.setDeBug(deBug);
+        mBleScanMan.setDeBug(true);
 
         //Create a GCellPermissionSettings instance
         GCellPermissionSettings permissionSettings = new GCellPermissionSettings();
