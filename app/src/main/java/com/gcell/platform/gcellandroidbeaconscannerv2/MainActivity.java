@@ -1,42 +1,40 @@
 package com.gcell.platform.gcellandroidbeaconscannerv2;
 
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.gcell.ibeacon.gcellbeaconscanlibrary.*;
 
-
-public class MainActivity extends AppCompatActivity implements GCellNotificationEvents{
-
-
-    private GCellBeaconScanManager mBleScanMan;
-
-
+public class MainActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Create an instance of the Scan manager
-        mBleScanMan = new GCellBeaconScanManager(this);
-
-        //You can also set some options if you want
-        addOptionalScanOptions();
-
-        //Set up the location/contents of the Notification Specification Settings
-        addNotifcationSettings();
-
-        //Start scanning for all beacons
-        mBleScanMan.startScanningForBeacons(GCellScanType.ScanForNotifications);
+        startBeaconScanningService();
     }
 
 
-    private void addOptionalScanOptions(){
+    /**
+     * Start the beacon scanning service
+     **/
+    private void startBeaconScanningService() {
+        Intent intent = new Intent(this, GCellBeaconScanManagerService.class);
 
-        //Set debug = true to see Log feedback as we scan
-        mBleScanMan.setDeBug(true);
+
+        //add andy extra settings - these are optional and defaults will be used if none are supplied
+        intent.putExtra("service_settings", addOptionalScanSettings());
+        intent.putExtra("notification_settings", addNotifcationSettings());
+        intent.putExtra("permission_settings", addOptionalPermissionOptions());
+
+        //If true the service will automatically load a JSON file and create the appropriate Regions
+        this.startService(intent);
+
+    }
+
+    private GCellPermissionSettings addOptionalPermissionOptions(){
 
         //Create a GCellPermissionSettings instance
         GCellPermissionSettings permissionSettings = new GCellPermissionSettings();
@@ -47,13 +45,26 @@ public class MainActivity extends AppCompatActivity implements GCellNotification
         //Set the system to automatically switch on Bluetooth if it is OFF
         permissionSettings.setAutoSwitchonBlueTooth(true);
 
-        //Set on the Scan Manager
-        mBleScanMan.setGCellPermissionSettings(permissionSettings);
+        return permissionSettings;
+    }
 
+    private GCellBeaconScanServiceSettings addOptionalScanSettings(){
+
+        //Create a new GCellBeaconScanServiceSettings instance to store service settings
+        GCellBeaconScanServiceSettings servSettings = new  GCellBeaconScanServiceSettings();
+
+        servSettings.setDeBug(true);
+        //Set the length of each scan, and any delay between scans in ms
+        //Longer and more regular scans will see beacons more quickly but will affect battery drain
+        // The default is 1000ms ON and 9000ms OFF
+        servSettings.setScanLength(1000);
+        servSettings.setDelayBetweenScans(9000);
+
+        return servSettings;
     }
 
 
-    private void addNotifcationSettings(){
+    private GCellNotificationSettings addNotifcationSettings(){
         GCellNotificationSettings notSettings = new GCellNotificationSettings();
 
         //Set the name of the notification spec file
@@ -86,27 +97,12 @@ public class MainActivity extends AppCompatActivity implements GCellNotification
          notSettings.setFileContents(notJson);
          */
 
-        mBleScanMan.setGCellNotificationSettings(notSettings);
-    }
+        //Set
+        notSettings.setNotificationTitle("Example Notification from a Service!");
 
-
-
-    //Notification Events
-
-    @Override
-    public void receivedNotification(GCellBeaconAction gCellBeaconAction) {
-        //Received a notifcation. There is a Local Notifcation class in the library
-        //That we will use use for convience
-
-        GCellLocalNotification not = new GCellLocalNotification();
-
-        not.sendNotifcation(gCellBeaconAction.getActionName(), this, false);
+        return notSettings;
 
     }
 
-    @Override
-    public void notificationFileError(Integer integer, String s) {
 
-        GCellLocalNotification not = new GCellLocalNotification();
-    }
 }
