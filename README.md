@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity implements GCellScanManagerE
     ...........
     
 ```
-Performing scans is straightforward - just create a new instance of *GCellScanManger* and invoke teh *startScanningForBeacons* method. 
+Performing scans is straightforward - just create a new instance of *GCellScanManger* and invoke the *startScanningForBeacons* method. 
 
 ```java
         //Create an instance of the Scan manager
