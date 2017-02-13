@@ -3,14 +3,12 @@ package com.gcell.platform.gcellandroidbeaconscannerv2;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import java.util.ArrayList;
 
 import com.gcell.ibeacon.gcellbeaconscanlibrary.*;
 
 
-public class MainActivity extends AppCompatActivity implements GCellScanManagerEvents{
+public class MainActivity extends AppCompatActivity implements GCellNotificationEvents{
 
-    private String TAG = "GCell Activity";
 
     private GCellBeaconScanManager mBleScanMan;
 
@@ -27,8 +25,11 @@ public class MainActivity extends AppCompatActivity implements GCellScanManagerE
         //You can also set some options if you want
         addOptionalScanOptions();
 
+        //Set up the location/contents of the Notification Specification Settings
+        addNotifcationSettings();
+
         //Start scanning for all beacons
-        mBleScanMan.startScanningForBeacons(GCellScanType.ScanForAll);
+        mBleScanMan.startScanningForBeacons(GCellScanType.ScanForNotifications);
     }
 
 
@@ -52,13 +53,60 @@ public class MainActivity extends AppCompatActivity implements GCellScanManagerE
     }
 
 
-    @Override
-    public void onGCellUpdateBeaconList(ArrayList<GCelliBeacon> discoveredBeacons) {
-        for (GCelliBeacon beacon : discoveredBeacons) {
-            System.out.println(beacon.getProxUuid().getStringFormattedUuid());
-            System.out.println(beacon.getMajorNo());
-            System.out.println(beacon.getMinorNo());
-        }
+    private void addNotifcationSettings(){
+        GCellNotificationSettings notSettings = new GCellNotificationSettings();
+
+        //Set the name of the notification spec file
+        notSettings.setNotificationSpecFileName("beacons.json");
+
+        //Recover the file from the local assets folder
+        notSettings.setNotificationSpecFileLocation(GCellFileLocationTypes.assets);
+
+        //Alternatively you could down the file or create the settings locally and send the JSON as a string
+        /**
+         String notJson =
+         "{
+             'beacons':[
+                                {
+                                 'comment':'Example',
+                                 'UUID':'96530d4d-09af-4159-b99e-951a5e826584',
+                                 'major':100,
+                                 'minor':1,
+                                 'actions':   [
+                                                {
+                                                'actionName':'custom2',
+                                                'minActionRssi': -55,
+                                                'recurrance': 20
+                                                }
+                                            ]
+                                }
+                    ]
+         }"
+
+         notSettings.setFileContents(notJson);
+         */
+
+        mBleScanMan.setGCellNotificationSettings(notSettings);
     }
 
+
+
+    //Notification Events
+
+    @Override
+    public void receivedNotification(GCellBeaconAction gCellBeaconAction) {
+        //Received a notifcation. There is a Local Notifcation class in the library
+        //That we will use use for convience
+
+        GCellLocalNotification not = new GCellLocalNotification();
+
+        not.sendNotifcation(gCellBeaconAction.getActionName(), this, false);
+
+    }
+
+    @Override
+    public void notificationFileError(Integer integer, String s) {
+
+        GCellLocalNotification not = new GCellLocalNotification();
+    }
 }
