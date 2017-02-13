@@ -3,7 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GCellAndroidBeaconScannerv2.iml" filepath="$PROJECT_DIR$/GCellAndroidBeaconScannerv2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GCellBeaconScanner_Android_v2.iml" filepath="$PROJECT_DIR$/GCellBeaconScanner_Android_v2.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gcellbeaconscanlibrary/gcellbeaconscanlibrary.iml" filepath="$PROJECT_DIR$/gcellbeaconscanlibrary/gcellbeaconscanlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/gcellbeaconscanlibrary/gcellbeaconscanlibrary.iml" filepath="$PROJECT_DIR$/gcellbeaconscanlibrary/gcellbeaconscanlibrary.iml" />
     </modules>
   </component>
