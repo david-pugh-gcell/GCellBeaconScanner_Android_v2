@@ -1,1 +1,1 @@
-include ':app', ':gcellbeaconscanlibrary'
+include ':app', ':gcellbeaconscanlibraryv2'
