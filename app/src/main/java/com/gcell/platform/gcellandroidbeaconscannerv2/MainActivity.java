@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import com.gcell.ibeacon.gcellbeaconscanlibrary.*;
 
 
