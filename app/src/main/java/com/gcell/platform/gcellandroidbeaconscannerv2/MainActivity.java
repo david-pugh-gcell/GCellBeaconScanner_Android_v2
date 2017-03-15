@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity{
     private void startBeaconScanningService() {
         Intent intent = new Intent(this, GCellBeaconScanManagerService.class);
 
-
         //add andy extra settings - these are optional and defaults will be used if none are supplied
         intent.putExtra("service_settings", addOptionalScanSettings());
         intent.putExtra("notification_settings", addNotifcationSettings());
@@ -74,8 +73,7 @@ public class MainActivity extends AppCompatActivity{
         notSettings.setNotificationSpecFileLocation(GCellFileLocationTypes.assets);
 
         //Alternatively you could down the file or create the settings locally and send the JSON as a string
-        /**
-         String notJson =
+        /**String notJson =
          "{
              'beacons':[
                                 {
