@@ -8,17 +8,17 @@ Examples and explanations of different ways to use the library are given as bran
 ### Compatibility
 The library is designed and tested to work with Android 4.3 (API Level 18) onwards. This API introduces built-in platform support for Bluetooth Low Energy to scan and discover devices. As usch please ensure that the min sdk version is set to 18 in the app/build.gradle:
 
-````xml
+```xml
 defaultConfig {
         .....
         minSdkVersion 18
         ......
     }
-````
+```
 
 # Using the Library
 
-##Adding the Library to your Project
+## Adding the Library to your Project
 
 Use the module import wizard (File | New Module | Import .JAR or .AAR package) which will automatically add the .aar as a library module in your project. 
 
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements GCellScanManagerE
 }
 ```
 
-##Setting Permissions
+## Setting Permissions
 In order to detect beacons your app will need to have manifest permission to access to Bluetooth and your location. To enable these permissions add the following entries to the AndroidManifest.xml file in your app. 
 
 ```xml
@@ -45,7 +45,7 @@ In order to detect beacons your app will need to have manifest permission to acc
         <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />  
 ```
 
-##Location Permission on Marshmallow onwards
+## Location Permission on Marshmallow onwards
 For Android Marshmallow (API23 Version 6.0) onwards the app needs to check that the user has granted access to location everytime a scan is requested. The library automatically checks this and handles any user feedback. For the first time the app is run, the user is asked to allow or deny permission. If they deny, any pending scans are cancelled and when a scan is subsequently requested an explanation as to why permission is required will be shown. This explanation can be altered using the GCellPermissionSetting class. 
 
 When the device Bluetooth is switched off any scanning will stop. You can also set the library to automatically enable Bluetooth if it is off using the same class. 
