@@ -5,7 +5,7 @@ Examples using the improved GCell Beacon Scanning Library. Example of scanning f
 
 ## Scanning for All Beacons within Range
 
-This is the simplest way to use the librasry and it will return all oberved iBeacon devices with the range of the device. Firstly ensure that your Activity implements the *GCellScanManagerEvents* interface.
+This is the simplest way to use the library and it will return all oberved iBeacon devices with the range of the device. Firstly ensure that your Activity implements the *GCellScanManagerEvents* interface.
 
 ```java
 public class MainActivity extends AppCompatActivity implements GCellScanManagerEvents{
