@@ -1,5 +1,5 @@
 # GCellBeaconScanner_Android_v2
-Examples using the improved GCell Beacon Scanning Library. Example of receiving notiifcations.
+Examples using the improved GCell Beacon Scanning Library. Example of receiving notifications.
 
 **Please See the Readme on the Master Branch for General Set up**
 
