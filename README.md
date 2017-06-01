@@ -40,6 +40,7 @@ Every 1 second the libvrary will return an updated list of discovered beacons th
 An example activity class is shown below - including adding some additional settings for the BLE scan using the *GCellPermissionSettings* class. 
 
 '''java
+
 public class MainActivity extends AppCompatActivity implements GCellScanManagerEvents{
 
     private GCellBeaconScanManager mBleScanMan;
