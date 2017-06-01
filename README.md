@@ -6,7 +6,7 @@ Examples and explanations of different ways to use the library are given as bran
 ### Installing the Library
 
 ### Compatibility
-The library is designed and tested to work with Android 4.3 (API Level 18) onwards. This API introduces built-in platform support for Bluetooth Low Energy to scan and discover devices. As usch please ensure that the min sdk version is set to 18 in the app/build.gradle:
+The library is designed and tested to work with Android 4.3 (API Level 18) onwards. This API introduces built-in platform support for Bluetooth Low Energy to scan and discover devices. As such please ensure that the min sdk version is set to 18 in the app/build.gradle:
 
 ```xml
 defaultConfig {
