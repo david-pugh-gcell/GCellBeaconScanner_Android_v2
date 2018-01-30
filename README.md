@@ -2,10 +2,10 @@
 Examples using the improved GCell Beacon Scanning Library. Examples include scanning for all beacons, scanning for regions, receiving notifications and running scans as a service.
 
 ## Scanning in the background. 
-This example shows how you can allow an Activity to start a service that scans for beacons in the background and delivers a local notification if a listed beacon is observed action and teh time/strength criteria is met. It uses the same Notification Specification file outlined in the Scan For Notification example.
+This example shows how you can allow an Activity to start a service that scans for beacons in the background and delivers a local notification if a listed beacon is observed action and the time/strength criteria is met. It uses the same Notification Specification file outlined in the Scan For Notification example.
 This service is sticky and Android will restart it if it is closed due to memory constraints. Permissions on Android 6 and above are still managed as part of the library. 
 
-##Allowing the Service to Run
+## Allowing the Service to Run
 Add an entry for the service in the App Manifest file. If should fall within the Application tags, e.g., 
 
 ```xml
@@ -25,7 +25,7 @@ Add an entry for the service in the App Manifest file. If should fall within the
     </application>
 ```
 
-##Starting the Service
+## Starting the Service
 Within the activity create an Intent to start the service. You can send extra data and settings as Extras - just create the appropriate*GCellNotifcationSettings*, *GCellPermissionSettings* and *GCellBeaconServiceScanSetting* objects.   
 
 ```java
