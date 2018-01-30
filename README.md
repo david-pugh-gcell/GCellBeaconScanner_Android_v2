@@ -2,7 +2,7 @@
 Examples using the improved GCell Beacon Scanning Library. Examples include scanning for all beacons, scanning for regions, receiving notifications and running scans as a service.
 
 ## Scanning in the background. 
-This example shows how you can allow an Activity to start a service that scans for beacons in the background and delivers a local notification if a listed beacon is observed action and the time/strength criteria is met. It uses the same Notification Specification file outlined in the Scan For Notification example.
+This example shows how you can allow an Activity to start a service that scans for beacons in the background and delivers a local notification if a listed beacon is observed action and the time/strength criteria is met. It uses the same *Notification Specification file* outlined in the [Scan For Notification](https://github.com/david-pugh-gcell/GCellBeaconScanner_Android_v2/tree/ScanForNotifications) example.
 This service is sticky and Android will restart it if it is closed due to memory constraints. Permissions on Android 6 and above are still managed as part of the library. 
 
 ## Allowing the Service to Run
