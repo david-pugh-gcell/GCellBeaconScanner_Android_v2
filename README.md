@@ -66,7 +66,7 @@ When the device Bluetooth is switched off any scanning will stop. You can also s
 # Different Modes of Operation 
 The library can be used in 4 main senarios. The first 3 are run from an Activity and scanning occurs when the Activity is in the foreground. The final example shows using scanning as a background activity. 
 
-1. [Scan for All beacons](/tree/ScanForAll/) A list of beacons is returned every second and the developer can then do what they wish with the results. 
+1. [Scan for All beacons](https://github.com/david-pugh-gcell/GCellBeaconScanner_Android_v2/tree/ScanForAll) A list of beacons is returned every second and the developer can then do what they wish with the results. 
 2. [Scan only for Defined Regions](/tree/ScanForRegions/) Only beacons with specfific UUID, Majors and/or Minors are returned.
 3. [Scan and Delivery notifcations for specific beacons](/tree/ScanForNotifications/) if certain criteria are met.
-4. [As a background service](/tree/ScanAsAService/) that delivers a local notification if certain crieria are met.
+4. [As a background service](https://github.com/david-pugh-gcell/GCellBeaconScanner_Android_v2/tree/ScanAsAService) that delivers a local notification if certain crieria are met.
