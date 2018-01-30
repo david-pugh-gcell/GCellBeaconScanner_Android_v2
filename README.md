@@ -64,7 +64,7 @@ When the device Bluetooth is switched off any scanning will stop. You can also s
         mBleScanMan.setGCellPermissionSettings(permissionSettings);
 ```
 # Different Modes of Operation 
-The library can be used in 4 main senarios. The first 3 are run from an Activity and scanning occurs when the Activity is in teh foreground. The firnal example shows using scanning as a background activity. 
+The library can be used in 4 main senarios. The first 3 are run from an Activity and scanning occurs when the Activity is in the foreground. The final example shows using scanning as a background activity. 
 
 1. Scan for All beacons. A list of beacons is returned every second and the developer can then do what they wish with the results. 
 2. Scan only for Defined Regions. Only beacons with specfific UUID, Majors and/or Minors are returned.
