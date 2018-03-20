@@ -7,6 +7,10 @@ Examples and explanations of different ways to use the library are given as bran
 Release 20/03/2018
 Version 2.04
 
+```
+gcellbeaconscanlibrary-release-v2-04.aar
+```
+
 ### Installing the Library
 
 ### Compatibility
