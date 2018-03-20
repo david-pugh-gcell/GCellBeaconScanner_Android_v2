@@ -3,6 +3,10 @@ GCell Beacon Scanner for Android. Version 2 allowing operation as a service with
 
 Examples and explanations of different ways to use the library are given as branches in the repository. Please see their indiviual Readme files for specififc documentation. 
 
+## Current Version
+Release 20/03/2018
+Version 2.04
+
 ### Installing the Library
 
 ### Compatibility
