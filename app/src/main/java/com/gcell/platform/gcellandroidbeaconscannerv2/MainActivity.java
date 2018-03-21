@@ -83,12 +83,13 @@ public class MainActivity extends AppCompatActivity implements GCellBeaconRegion
 
     @Override
     public void didRangeBeaconsinRegion(GCellBeaconRegion gCellBeaconRegion, List<GCelliBeacon> discoveredBeacons) {
-        System.out.println(gCellBeaconRegion.description());
-
+        System.out.println("Ranged " + discoveredBeacons.size() + " beacons in " + gCellBeaconRegion.description());
+        System.out.println("Prox UUID " +  gCellBeaconRegion.getProxUuid().getStringFormattedUuid());
+        System.out.printf("%3s %4s %4s\n", "No", "Major", "Minor");
+        int i = 1;
         for (GCelliBeacon beacon : discoveredBeacons) {
-            System.out.println(beacon.getProxUuid().getStringFormattedUuid());
-            System.out.println(beacon.getMajorNo());
-            System.out.println(beacon.getMinorNo());
+            System.out.printf("%3d %4d %4d \n" ,  i , beacon.getMajorNoInt(),beacon.getMinorNoInt());
+            i = i + 1;
         }
     }
 }
