@@ -1,5 +1,5 @@
 # GCellBeaconScanner_Android_v2
-Examples using the improved GCell Beacon Scanning Library. Example of receiving notiifcations.
+Examples using the improved GCell Beacon Scanning Library. Example of receiving notifications.
 
 **Please See the Readme on the Master Branch for General Set up**
 
@@ -7,9 +7,9 @@ Examples using the improved GCell Beacon Scanning Library. Example of receiving 
 
 A notification can be fed back to your activity if a beacon is observed and certain criteria are met.
 
-###Notification Specification
+### Notification Specification
 
-A specifcation of what beacons to look for should be genrated along with any actions thqat should be performed when they are seen. This should be in JSON format, as outlined below:
+A specification of what beacons to look for should be generated along with any actions thqat should be performed when they are seen. This should be in JSON format, as outlined below:
 * The **actionName** is the string that is called when the action is triggered
 * The **minActionRssi** determines the min Signal Strength (RSSI) that the phone should see before triggering the action (the higher the number - that is the closer to 0 - the closer you will be to the beacon, e.g., -90dB would be approx 20m and -50dB would be approx 1-2m). 
 * The **reccurance** value is the time in seconds between subsequent triggers. E.g., a value of 300 would mean the time between multiple actionName triggers would be 5 minutes (300 seconds). This means we can control the ammount of times a user would be presented with information or notifications, improving user experience. 
